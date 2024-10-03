@@ -1,0 +1,27 @@
+.location-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.location-heading {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.employee-salary-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+.label {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-size: 16px;
+}

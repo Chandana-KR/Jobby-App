@@ -7,6 +7,7 @@ import JobsCard from '../JobsCard'
 import FilterDetails from '../FilterDetails'
 import SalaryRangeFilter from '../SalaryRangeFilter'
 import ProfileDetails from '../ProfileDetails'
+import Location from '../Location'
 
 import './index.css'
 
@@ -55,6 +56,29 @@ const salaryRangesList = [
   },
 ]
 
+const locationList = [
+  {
+    locationId: 'DELHI',
+    label: 'Delhi',
+  },
+  {
+    locationId: 'BANGALORE',
+    label: 'Bangalore',
+  },
+  {
+    locationId: 'HYDERABAD',
+    label: 'Hyderabad',
+  },
+  {
+    locationId: 'MUMBAI',
+    label: 'Mumbai',
+  },
+  {
+    locationId: 'CHENNAI',
+    label: 'Chennai',
+  },
+]
+
 class AllJobsSection extends Component {
   state = {
     jobsArray: [],
@@ -62,6 +86,7 @@ class AllJobsSection extends Component {
     searchInput: '',
     activeEmployee: [],
     salaryRange: '',
+    activeLocation: '',
   }
 
   componentDidMount() {
@@ -91,6 +116,9 @@ class AllJobsSection extends Component {
 
   getJobsDetails = async () => {
     const {searchInput, activeEmployee, salaryRange} = this.state
+
+    // const {activeLocation} = this.state
+
     const employmentType = activeEmployee.join(',')
     console.log('This is employ type')
     console.log(employmentType)
@@ -157,6 +185,10 @@ class AllJobsSection extends Component {
     </div>
   )
 
+  changeLocation = activeId => {
+    this.setState({activeLocation: activeId})
+  }
+
   renderNoJobsView = () => (
     <div className="no-jobs-container">
       <img
@@ -172,16 +204,18 @@ class AllJobsSection extends Component {
   )
 
   renderSuccess = () => {
-    const {jobsArray} = this.state
+    const {jobsArray, activeLocation} = this.state
     const isTrue = jobsArray.length > 0
-    console.log('This is array')
-    console.log(jobsArray)
+
+    const updatedJobsArray = jobsArray.filter(
+      eachJob => eachJob.location === activeLocation,
+    )
+    const jobs = activeLocation === '' ? jobsArray : updatedJobsArray
+    console.log(updatedJobsArray)
     return (
       <ul className="jobs-item-container">
         {isTrue
-          ? jobsArray.map(eachJob => (
-              <JobsCard jobs={eachJob} key={eachJob.id} />
-            ))
+          ? jobs.map(eachJob => <JobsCard jobs={eachJob} key={eachJob.id} />)
           : this.renderNoJobsView()}
       </ul>
     )
@@ -246,6 +280,17 @@ class AllJobsSection extends Component {
                 key={eachrange.salaryRangeId}
                 changeSalaryRange={this.changeSalaryRange}
                 salaryRange={salaryRange}
+              />
+            ))}
+          </ul>
+
+          <h1 className="filter-heading">Location</h1>
+          <ul>
+            {locationList.map(eachLocation => (
+              <Location
+                locationItem={eachLocation}
+                key={eachLocation.locationId}
+                changeLocation={this.changeLocation}
               />
             ))}
           </ul>
