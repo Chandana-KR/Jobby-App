@@ -1,0 +1,17 @@
+.job-title {
+  font-size: 22px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  color: #ffffff;
+}
+.each-job-item-container {
+  background-color: #272727;
+  width: 400px;
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}

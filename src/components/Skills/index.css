@@ -1,0 +1,16 @@
+.list-item {
+  margin-right: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.skill-name {
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: #ffffff;
+}
+.image {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
