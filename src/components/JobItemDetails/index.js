@@ -153,18 +153,18 @@ class JobItemDetails extends Component {
               alt="job details company logo"
               className="company logo"
             />
-            <div>
+            <div className="title-container">
               <h1 className="job-title">{title}</h1>
               <div className="start-container">
                 <FaRegStar className="start-icon" />
-                <p className="job-title">{rating}</p>
+                <p className="job-title"> {rating}</p>
               </div>
             </div>
           </div>
           <div className="location-package-type-container">
             <div className="location-package-icon-container">
               <IoLocationOutline className="job-icons" />
-              <p className="location">{location}</p>
+              <p className="location"> {location}</p>
             </div>
 
             <div className="location-package-icon-container">

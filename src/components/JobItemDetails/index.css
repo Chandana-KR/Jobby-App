@@ -16,17 +16,21 @@
 .top-container {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .company-logo {
   height: 100px;
-  width: 100px;
-  margin-right: 10px;
+  width: 90px;
+  margin-right: 20px;
 }
 .job-title {
   font-size: 22px;
   font-family: 'Roboto';
   font-weight: 700;
   color: #ffffff;
+}
+.title-container {
+  margin-left: 20px;
 }
 .start-container {
   display: flex;
@@ -35,6 +39,7 @@
 .start-icon {
   font-size: 24px;
   color: #fbbf24;
+  margin-right: 6px;
 }
 .location-package-type-container {
   display: flex;
@@ -59,6 +64,7 @@
 .job-icons {
   font-size: 24px;
   color: #ffffff;
+  margin-right: 6px;
 }
 
 .link {
@@ -115,4 +121,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.each-job-item {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .each-job-item {
+    flex-direction: row;
+  }
 }
